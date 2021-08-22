@@ -10,7 +10,7 @@ It has been tested sucessfully with following setup:
 
 * Micropython 1.9.4
 
-* ESP8266 D1 mini  (other EXP826 boards might work as well with some modifications depending on the model)
+* ESP8266 D1 mini  (other ESP8266 boards might work as well with some modifications depending on the model)
 
 ## Required hardware components:
 
