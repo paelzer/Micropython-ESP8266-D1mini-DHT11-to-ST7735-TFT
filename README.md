@@ -20,16 +20,16 @@ It has been tested sucessfully with following setup:
           
 ## Pinout and schematic:
 
-|Display Pin |ESP8266 Pin |  |DHT11       |ESP8266      |
-|------------|------------|--|------------|-------------|
-|Q0          |11          |  |MR	      |D12          |
-|Q1          |1           |  |SH_CP       |D6           |
-|Q2          |2           |  |ST_CP       |D7           |
-|Q3          |3           |  |DS	      |D8           |
-|Q4          |4           |  |OE          |GND          |
-|Q5          |5           |  |VCC         |5V           |
-|Q6          |7           |  |GND         |GND          |
-|Q7          |10          |  |            |             |
+|Display Pin |ESP8266 Pin    |  |DHT11       |ESP8266      |
+|------------|---------------|--|------------|-------------|
+|GND         |GND            |  |VCC         |             |
+|VCC         |3.3V           |  |            |             |
+|SCK         |D5/CLK/GPIO14  |  |GND         |             |
+|SDA         |D7/MOSI/GPIO13 |  |            |             |
+|RES         |D3/GPIO0       |  |            |             |
+|RS/DC/A0    |D0/GPIO16      |  |            |             |
+|CS          |D8/CS/GPIO15   |  |            |             |
+|LEDA        |3.3V           |  |            |             |
    
 </br>
 <img src="https://i.imgur.com/jWa8qOf.png" width="600">
