@@ -1,7 +1,5 @@
-# PC case temperature on a 4-digit 7-segment display
-**This project allows you to show your PC case temperature on a 4 digit 7 segment display connected to an Arduino NANO**
-
-**Not that it's really neccessary to have this... but I think it looks cool anyway :-)**
+# uPy ESP8266 D1mini Text to TFT ST7735
+**This project allows you to show room temperature and humidity on a ST7735 display (160x128px) connected to an ESP8266 D1 mini**
 
 </br>
 <img src="https://i.imgur.com/EwXUg77.png">
@@ -10,32 +8,29 @@ It has been tested sucessfully with following setup:
 
 * Windows 10 x64
 
-* Arduino IDE 1.8.16
+* Micropython 1.9.4
 
-* Arduino NANO (other Arduino boards work as well with some modifications depending on the model)
+* ESP8266 D1 mini  (other EXP826 boards might work as well with some modifications depending on the model)
 
 ## Required hardware components:
 
-    7 segment display with 4 digits (common anode type)
-    1x 8bit shift register 74HC595
-    1x Resistor 3.3K Ohm
-    8x Resistor 220 Ohm
-    KTY81 110 temperature sensor
-    Arduino NANO
-      
+    1 ST7735 TFT display
+    1x ESP826 D1 mini
+    1x DHT11 temperature/humidity sensor
+          
 ## Pinout and schematic:
 
-|74HC595 Pin |Display Pin |  |74HC595 Pin |Arduino Pin  |  |Arduino NANO|Display Pin|   |KTY81-110 Pin|Arduino Pin|
+|Display Pin |ESP8266 Pin |  |DHT11       |ESP826       |  |Arduino NANO|Display Pin|   |KTY81-110 Pin|Arduino Pin|
 |------------|------------|--|------------|-------------|--|------------|-----------|---|-------------|-----------|        
-|Q0          |11          |  |MR	  |D12          |  |D2          |12         |   |1            |A1         |       
+|Q0          |11          |  |MR	      |D12          |  |D2          |12         |   |1            |A1         |       
 |Q1          |1           |  |SH_CP       |D6           |  |D3          |9          |   |2            |5V         |       
 |Q2          |2           |  |ST_CP       |D7           |  |D4          |8          |   |             |           |       
-|Q3          |3           |  |DS	  |D8           |  |D5          |6          |   |             |           |       
+|Q3          |3           |  |DS	      |D8           |  |D5          |6          |   |             |           |       
 |Q4          |4           |  |OE          |GND          |  |            |           |   |             |           |       
 |Q5          |5           |  |VCC         |5V           |  |            |           |   |             |           |       
 |Q6          |7           |  |GND         |GND          |  |            |           |   |             |           |       
 |Q7          |10          |  |            |             |  |            |           |   |             |           |
-	    
+   
 </br>
 <img src="https://i.imgur.com/jWa8qOf.png" width="600">
 Click to enlarge
