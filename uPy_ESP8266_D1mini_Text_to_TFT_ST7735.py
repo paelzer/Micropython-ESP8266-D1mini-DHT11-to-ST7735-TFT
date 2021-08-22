@@ -42,7 +42,7 @@ nameHum = "Humidity"
 display.fill(0)
 
 # heading
-bf.text("Sensor values", 0, 0, 0xffff)
+bf.text("Sensor values:", 0, 0, 0xffff)
 
 # put sensor values names on the display
 bf.text(nameTemp, nameCol, tempRow, 0xffff)
