@@ -20,16 +20,16 @@ It has been tested sucessfully with following setup:
           
 ## Pinout and schematic:
 
-|Display Pin |ESP8266 Pin |  |DHT11       |ESP826       |  |Arduino NANO|Display Pin|   |KTY81-110 Pin|Arduino Pin|
-|------------|------------|--|------------|-------------|--|------------|-----------|---|-------------|-----------|        
-|Q0          |11          |  |MR	      |D12          |  |D2          |12         |   |1            |A1         |       
-|Q1          |1           |  |SH_CP       |D6           |  |D3          |9          |   |2            |5V         |       
-|Q2          |2           |  |ST_CP       |D7           |  |D4          |8          |   |             |           |       
-|Q3          |3           |  |DS	      |D8           |  |D5          |6          |   |             |           |       
-|Q4          |4           |  |OE          |GND          |  |            |           |   |             |           |       
-|Q5          |5           |  |VCC         |5V           |  |            |           |   |             |           |       
-|Q6          |7           |  |GND         |GND          |  |            |           |   |             |           |       
-|Q7          |10          |  |            |             |  |            |           |   |             |           |
+|Display Pin |ESP8266 Pin |  |DHT11       |ESP8266      |
+|------------|------------|--|------------|-------------|
+|Q0          |11          |  |MR	      |D12          |
+|Q1          |1           |  |SH_CP       |D6           |
+|Q2          |2           |  |ST_CP       |D7           |
+|Q3          |3           |  |DS	      |D8           |
+|Q4          |4           |  |OE          |GND          |
+|Q5          |5           |  |VCC         |5V           |
+|Q6          |7           |  |GND         |GND          |
+|Q7          |10          |  |            |             |
    
 </br>
 <img src="https://i.imgur.com/jWa8qOf.png" width="600">
