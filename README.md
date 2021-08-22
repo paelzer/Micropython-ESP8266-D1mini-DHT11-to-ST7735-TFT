@@ -16,7 +16,7 @@ It has been tested sucessfully with following setup:
 
     1 ST7735 TFT display
     1x ESP826 D1 mini
-    1x DHT11 temperature/humidity sensor
+    1x DHT11 temperature & humidity sensor
           
 ## Pinout and schematic:
 
