@@ -29,20 +29,20 @@ nameCol = 7
 
 # y - positions
 tempRow = 30
-humRow = 45
+humRow = 60
 
 # x - position for sensor values
-valCol = 80
+valCol = 91
 
 # names for the sensor
-nameTemp = "Temperatur:"
-nameHum = "Humidity:"
+nameTemp = "Temperature"
+nameHum = "Humidity"
 
 # clear the display
 display.fill(0)
 
 # heading
-bf.text("Some sensor values...", 0, 0, 0xffff)
+bf.text("Sensor values", 0, 0, 0xffff)
 
 # put sensor values names on the display
 bf.text(nameTemp, nameCol, tempRow, 0xffff)
@@ -50,11 +50,12 @@ bf.text(nameHum, nameCol, humRow, 0xffff)
 
 # draw a table
 # display.h/vline(x, y, length, color)
-display.hline(0,17, 160, color=0xffff)
-display.hline(0,82, 160, color=0xffff)
-display.vline(0,17, 66, color=0xffff)
-display.vline(160,17, 66, color=0xffff)
-display.vline(68,17, 66, color=0xffff)
+display.hline(0, 17, 160, color=0xffff)
+display.hline(0, 82, 160, color=0xffff)
+display.hline(0, 50, 160, color=0xffff)
+display.vline(0, 17, 66, color=0xffff)
+display.vline(160, 17, 66, color=0xffff)
+display.vline(80, 17, 66, color=0xffff)
 
 # endless loop
 while(True):
@@ -75,4 +76,4 @@ while(True):
     temp = dht11sensor.temperature()
     hum = dht11sensor.humidity()
     
-    sleep(5)
+    sleep(2)
