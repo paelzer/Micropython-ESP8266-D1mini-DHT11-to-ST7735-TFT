@@ -59,11 +59,11 @@ while(True):
         bf.text(str(oldX), valCol, xRow, 0x00) # delete row
         bf.text(str(x), valCol, xRow, 0xfff) # put new value on the display
 
-    if not y == oldX:
+    if not y == oldY:
         bf.text(str(oldY), valCol, yRow, 0x00)
         bf.text(str(y), valCol, yRow, 0xfff)
 
-    if not x == oldX:
+    if not z == oldZ:
         bf.text(str(oldZ), valCol, zRow, 0x00)
         bf.text(str(z), valCol, zRow, 0xfff)
     
