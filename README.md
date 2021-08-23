@@ -38,11 +38,14 @@ Click to enlarge
 
 ## Bring the display to life
 
-* [Arduino IDE](https://www.arduino.cc/en/software) need to be installed
+* Connect the ESP8266 via USB to your PC
 
-* Connect the Arduino via USB to your PC
-> Since the Arduino is placed inside my PC case I have myself created a cable to connect it to one of the internal USB headers directly on the mainboard so I don't need to route the cable to a USB port outside of the case. The temperature sensor I have fixed with a cable tie somewhere in the middle of the case - pictures will follow.
+Flash the following files to the ESP8266
 
-* Flash the KTY81-110_7segm.ino file to the Arduino NANO
+* st7735.py
+* rgb.py
+* bitmapfont.py
+* font5x8.bin
+* dht11-tft.py
 
 * If everything has been setup correctly the temperature in your PC case will show up on the display
