@@ -4,20 +4,21 @@
 </br>
 <img src="https://imgur.com/HRgblQd.jpg">
 
+</br>
+</br>
+
 It has been tested sucessfully with following setup:
 
-* Windows 10 x64
-
-* Micropython 1.9.4
-
-* ESP8266 D1 mini  (other ESP8266 boards might work as well with some modifications depending on the model)
+    Windows 10 x64
+    Micropython 1.9.4
+    ESP8266 D1 mini  (other ESP8266 boards might work as well with some modifications depending on the model)
 
 ## Required hardware components:
 
     1 ST7735 TFT display
     1x ESP826 D1 mini
     1x DHT11 temperature & humidity sensor
-	1x 10K resistor
+    1x 10K resistor
           
 ## Pinout and schematic:
 
@@ -38,9 +39,9 @@ Click to enlarge
 
 ## Bring the display to life
 
-* Connect the ESP8266 via USB to your PC
+Connect the ESP8266 via USB to your PC
 
-* Flash the following files to the ESP8266:
+Flash the following files to the ESP8266:
 
 	st7735.py
 	rgb.py
@@ -52,4 +53,4 @@ On the micropython console type:
 
 	import dht11-tft
 
-* If everything has been setup correctly the display should show temperature, humidity and the free memory of the ESP8266
+If everything has been setup correctly the display should show temperature, humidity and the free memory of the ESP8266
