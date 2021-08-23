@@ -1,4 +1,4 @@
-# uPy ESP8266 D1mini Text to TFT ST7735
+# Micropython - ESP8266 D1mini - DHT11 values to ST7735 TFT
 **This project allows you to show room temperature and humidity on a ST7735 display (160x128px) connected to an ESP8266 D1 mini**
 
 </br>
@@ -21,11 +21,11 @@ It has been tested sucessfully with following setup:
           
 ## Pinout and schematic:
 
-|Display Pin |ESP8266 Pin    |  |DHT11       |ESP8266      |
+|Display Pin |ESP8266 Pin    |  |DHT11 Pin   |ESP8266 Pin  |
 |------------|---------------|--|------------|-------------|
-|GND         |GND            |  |VCC         |             |
-|VCC         |3.3V           |  |            |             |
-|SCK         |D5/CLK/GPIO14  |  |GND         |             |
+|GND         |GND            |  |VCC         |3.3V         |
+|VCC         |3.3V           |  |Data        |D1/GPIO5     |
+|SCK         |D5/CLK/GPIO14  |  |GND         |GND          |
 |SDA         |D7/MOSI/GPIO13 |  |            |             |
 |RES         |D3/GPIO0       |  |            |             |
 |RS/DC/A0    |D0/GPIO16      |  |            |             |
@@ -46,11 +46,3 @@ Click to enlarge
 * Flash the KTY81-110_7segm.ino file to the Arduino NANO
 
 * If everything has been setup correctly the temperature in your PC case will show up on the display
-
-## Check the temperature on the serial line (COM port)
-
-* As soon as the Arduino is powered up it will continously send the calculated resistance value and the temperature accordingly over the serial line via the USB the Arduino is connected to. It can be read off by connecting to the COM port with e.g. the Arduinos serial monitor, putty or any other serial monitor you're familiar with.
-      
-* The COM port your Arduino is connected to can easily be found by checking your Windows device manager or by looking in the Arduino IDE.
-  
-</br>
