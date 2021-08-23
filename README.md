@@ -2,7 +2,7 @@
 **This project allows you to show room temperature and humidity on a ST7735 display (160x128px) connected to an ESP8266 D1 mini**
 
 </br>
-<img src="https://i.imgur.com/EwXUg77.png">
+<img src="https://imgur.com/HRgblQd.jpg">
 
 It has been tested sucessfully with following setup:
 
@@ -17,6 +17,7 @@ It has been tested sucessfully with following setup:
     1 ST7735 TFT display
     1x ESP826 D1 mini
     1x DHT11 temperature & humidity sensor
+	1x 10K resistor
           
 ## Pinout and schematic:
 
