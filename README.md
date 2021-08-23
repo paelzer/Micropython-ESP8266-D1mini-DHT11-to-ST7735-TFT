@@ -1,5 +1,5 @@
-# Micropython - ESP8266 D1mini - DHT11 values to ST7735 TFT
-**This project allows you to show room temperature and humidity on a ST7735 display (160x128px) connected to an ESP8266 D1 mini**
+# Micropython - ESP8266 D1mini - DHT11 to ST7735 TFT
+**This project allows you to show room temperature and humidity on an ST7735 TFT display (160x128px) connected to an ESP8266 D1 mini**
 
 </br>
 <img src="https://imgur.com/HRgblQd.jpg">
@@ -40,12 +40,12 @@ Click to enlarge
 
 * Connect the ESP8266 via USB to your PC
 
-Flash the following files to the ESP8266
+Flash the following files to the ESP8266:
 
-* st7735.py
-* rgb.py
-* bitmapfont.py
-* font5x8.bin
-* dht11-tft.py
+	st7735.py
+	rgb.py
+	bitmapfont.py
+	font5x8.bin
+	dht11-tft.py
 
-* If everything has been setup correctly the temperature in your PC case will show up on the display
+* If everything has been setup correctly the display should show temperature, humidity and the free memory of the ESP8266
