@@ -40,12 +40,15 @@ Click to enlarge
 
 * Connect the ESP8266 via USB to your PC
 
-Flash the following files to the ESP8266:
+* Flash the following files to the ESP8266:
 
 	st7735.py
 	rgb.py
 	bitmapfont.py
 	font5x8.bin
 	dht11-tft.py
+
+* On the micropython console type:
+	import dht11-tft
 
 * If everything has been setup correctly the display should show temperature, humidity and the free memory of the ESP8266
