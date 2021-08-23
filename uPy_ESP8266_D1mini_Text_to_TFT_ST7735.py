@@ -46,6 +46,7 @@ display.vline(80, 22, 66, color=0xffff)
 
 # endless loop
 while(True):
+    
     if not temp == old_temp: # only delete old value and write new one if new sensor value is different from old one
         display.fill_rectangle(91, 67, 24, 8, 0) # delete old value by over drawing with a black rectangle
         bf.text(str(temp) + " øC", 91, 35, 0xfff) # put new value on the display (btw... øC will show on the display as °C)
