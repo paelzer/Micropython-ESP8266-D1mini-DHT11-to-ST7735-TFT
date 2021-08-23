@@ -49,7 +49,6 @@ Click to enlarge
 	dht11-tft.py
 
 On the micropython console type:
-
 	import dht11-tft
 
 * If everything has been setup correctly the display should show temperature, humidity and the free memory of the ESP8266
