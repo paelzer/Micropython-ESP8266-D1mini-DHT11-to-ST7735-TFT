@@ -48,7 +48,7 @@ Click to enlarge
 	font5x8.bin
 	dht11-tft.py
 
-* On the micropython console type:
+On the micropython console type:
 
 	import dht11-tft
 
