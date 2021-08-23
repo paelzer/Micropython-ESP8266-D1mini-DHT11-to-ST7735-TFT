@@ -28,8 +28,8 @@ oldHum = hum
 nameCol = 7
 
 # y - positions
-tempRow = 30
-humRow = 60
+tempRow = 35
+humRow = 67
 
 # x - position for sensor values
 valCol = 91
@@ -42,7 +42,7 @@ nameHum = "Humidity"
 display.fill(0)
 
 # heading
-bf.text("Sensor values:", 0, 0, 0xffff)
+bf.text("Sensor values:", 0, 5, 0xffff)
 
 # put sensor values names on the display
 bf.text(nameTemp, nameCol, tempRow, 0xffff)
@@ -50,22 +50,22 @@ bf.text(nameHum, nameCol, humRow, 0xffff)
 
 # draw a table
 # display.h/vline(x, y, length, color)
-display.hline(0, 17, 160, color=0xffff)
-display.hline(0, 82, 160, color=0xffff)
-display.hline(0, 50, 160, color=0xffff)
-display.vline(0, 17, 66, color=0xffff)
-display.vline(160, 17, 66, color=0xffff)
-display.vline(80, 17, 66, color=0xffff)
+display.hline(0, 22, 160, color=0xffff)
+display.hline(0, 87, 160, color=0xffff)
+display.hline(0, 55, 160, color=0xffff)
+display.vline(0, 22, 66, color=0xffff)
+display.vline(160, 22, 66, color=0xffff)
+display.vline(80, 22, 66, color=0xffff)
 
 # endless loop
 while(True):
     if not temp == oldTemp: # only overwrite and delete row if new sensor value is different from old one
-        bf.text(str(oldTemp + " øC"), valCol, tempRow, 0x00) # delete row
-        bf.text(str(temp + " øC"), valCol, tempRow, 0xfff) # put new value on the display
+        bf.text(str(oldTemp) + " øC", valCol, tempRow, 0x00) # delete row with black colored value
+        bf.text(str(temp) + " øC", valCol, tempRow, 0xfff) # put new value on the display (btw... øC will show on the display as °C)
 
     if not hum == oldHum:
-        bf.text(str(oldHum + " %"), valCol, humRow, 0x00)
-        bf.text(str(hum + " %"), valCol, humRow, 0xfff)
+        bf.text(str(oldHum) + " %", valCol, humRow, 0x00)
+        bf.text(str(hum) + " %", valCol, humRow, 0xfff)
 
     # store old sensor values for overwrite purpose
     oldTemp = temp
