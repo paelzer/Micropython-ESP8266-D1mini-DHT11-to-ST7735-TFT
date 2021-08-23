@@ -60,12 +60,12 @@ display.vline(80, 17, 66, color=0xffff)
 # endless loop
 while(True):
     if not temp == oldTemp: # only overwrite and delete row if new sensor value is different from old one
-        bf.text(str(oldTemp), valCol, tempRow, 0x00) # delete row
-        bf.text(str(temp), valCol, tempRow, 0xfff) # put new value on the display
+        bf.text(str(oldTemp + " øC"), valCol, tempRow, 0x00) # delete row
+        bf.text(str(temp + " øC"), valCol, tempRow, 0xfff) # put new value on the display
 
     if not hum == oldHum:
-        bf.text(str(oldHum), valCol, humRow, 0x00)
-        bf.text(str(hum), valCol, humRow, 0xfff)
+        bf.text(str(oldHum + " %"), valCol, humRow, 0x00)
+        bf.text(str(hum + " %"), valCol, humRow, 0xfff)
 
     # store old sensor values for overwrite purpose
     oldTemp = temp
