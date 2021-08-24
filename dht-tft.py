@@ -1,3 +1,7 @@
+import network
+import os
+import sys
+from umqtt.robust import MQTTClient
 from machine import Pin, SPI
 from time import sleep
 import st7735
@@ -6,6 +10,49 @@ import gc
 from dht import DHT11
 
 gc.enable()
+
+# ****************************** ADAFRUIT IO connection related ********************************
+# *
+# **********************************************************************************************
+
+# Sign of life LED - setup GPIO2 as an output pin connected to the onboard LED
+ledPin = Pin(2, Pin.OUT, value=1)
+
+# create a random MQTT clientID 
+random_num = int.from_bytes(os.urandom(3), 'little')
+mqtt_client_id = bytes('client_'+str(random_num), 'utf-8')
+
+# Establish connection to Adafruit IO MQTT via unsecure TCP port 1883
+# 
+# For secured SSL connection set set parameter ssl from "ssl=False" to "ssl=True"
+# Note: SSL connection uses about 9k bytes of the heap means 25% of the ESP8266 heap
+ADAFRUIT_IO_URL = b'io.adafruit.com' 
+ADAFRUIT_USERNAME = b'Your Adafruit username'
+ADAFRUIT_IO_KEY = b'Your Adafruit IO KEY'
+ADAFRUIT_IO_FEEDNAME = b'Your Adafruit feed name'
+
+client = MQTTClient(client_id=mqtt_client_id, 
+                    server=ADAFRUIT_IO_URL, 
+                    user=ADAFRUIT_USERNAME, 
+                    password=ADAFRUIT_IO_KEY,
+                    ssl=False)
+try:            
+    client.connect()
+except Exception as e:
+    print('could not connect to MQTT server {}{}'.format(type(e).__name__, e))
+    sys.exit()
+
+# send temperature measured by the DHT11 sensor to Adafruit IO via MQTT
+#
+# format of feed name:  
+# "ADAFRUIT_USERNAME/feeds/ADAFRUIT_IO_FEEDNAME"
+mqtt_feedname = bytes('{:s}/feeds/{:s}'.format(ADAFRUIT_USERNAME, ADAFRUIT_IO_FEEDNAME), 'utf-8')
+PUBLISH_PERIOD_IN_SEC = 10
+
+
+# **************************** DHT11 sensor & ST7735 TFT related *******************************
+# *
+# **********************************************************************************************
 
 # inits
 display = st7735.ST7735R(SPI(1, baudrate=40000000), dc=Pin(16), cs=Pin(15), rst=Pin(0))
@@ -46,13 +93,14 @@ display.vline(80, 22, 66, color=0xffff)
 
 # endless loop
 while(True):
-    
+    #print("oT: ", old_temp)
+    #print("T: ", temp)
     if not temp == old_temp: # only delete old value and write new one if new sensor value is different from old one
-        display.fill_rectangle(91, 67, 24, 8, 0) # delete old value by over drawing with a black rectangle
+        display.fill_rectangle(91, 35, 12, 8, 0) # delete old value by over drawing with a black rectangle
         bf.text(str(temp) + " øC", 91, 35, 0xfff) # put new value on the display (btw... øC will show on the display as °C)
 
     if not hum == old_hum:
-        display.fill_rectangle(91, 67, 30, 8, 0)
+        display.fill_rectangle(91, 67, 12, 8, 0)
         bf.text(str(hum) + " %", 91, 67, 0xfff)
 
     if not mf == old_mf:
@@ -67,9 +115,22 @@ while(True):
     # get new sensor values
     dht11sensor.measure()
     temp = dht11sensor.temperature()
+    sleep(1)
     hum = dht11sensor.humidity()
     
     #get free memory value
     mf = gc.mem_free()
     
-    sleep(2)
+    # send temperature value to ADAFRUIT IO    
+    try:
+        client.publish(mqtt_feedname, bytes(str(temp), 'utf-8'), qos=0)
+        #sleep(PUBLISH_PERIOD_IN_SEC)
+        for i in range(1, 11):
+            ledPin.value(0)
+            sleep(0.1)
+            ledPin.value(1)
+            sleep(0.9)
+    except KeyboardInterrupt:
+        print('Ctrl-C pressed...exiting')
+        client.disconnect()
+        sys.exit()
