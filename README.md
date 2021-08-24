@@ -2,7 +2,7 @@
 **This project allows you to show room temperature and humidity on an ST7735 TFT display (160x128px) connected to an ESP8266 D1 mini**
 
 </br>
-<img src="https://i.imgur.com/AekRgzC.jpg">
+<img src="https://imgur.com/kPmrGMm.jpg">
 
 </br>
 </br>
