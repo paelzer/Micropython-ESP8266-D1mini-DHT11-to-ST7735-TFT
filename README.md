@@ -34,7 +34,7 @@ It has been tested sucessfully with following setup:
 |LEDA        |3.3V           |  |            |             |
    
 </br>
-<img src="https://imgur.com/2dOCBLd.png" width="600">
+<img src="https://i.imgur.com/AekRgzC.jpg" width="600">
 Click to enlarge
 
 ## Bring the display to life
