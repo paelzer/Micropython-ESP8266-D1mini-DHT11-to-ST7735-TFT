@@ -18,7 +18,9 @@ gc.enable()
 # Sign of life LED - setup GPIO2 as an output pin connected to the onboard LED
 ledPin = Pin(2, Pin.OUT, value=1)
 
-# create a random MQTT clientID 
+# A randomly created MQTT clientID
+# (see https://io.adafruit.com/api/docs/mqtt.html#adafruit-io-mqtt-api for more details about the API)
+#
 random_num = int.from_bytes(os.urandom(3), 'little')
 mqtt_client_id = bytes('client_'+str(random_num), 'utf-8')
 
@@ -53,14 +55,14 @@ PUBLISH_PERIOD_IN_SEC = 10
 # **************************** DHT11 sensor & ST7735 TFT related *******************************
 # *
 # **********************************************************************************************
-
-# inits
+#
+# This initiates the SPI bus
 display = st7735.ST7735R(SPI(1, baudrate=40000000), dc=Pin(16), cs=Pin(15), rst=Pin(0))
 
 bf = bitmapfont.BitmapFont(128,160, display.pixel)
 bf.init()
 
-dht11sensor = DHT11(Pin(5))
+dht11sensor = DHT11(Pin(12))
 
 # sensor values initially 0
 temp = 0
@@ -84,6 +86,34 @@ bf.text("Humidity", 7, 67, 0xffff)
 bf.text("Free memory:", 7, 130, 0xffff)
 
 # draw a table
+"""
+Example for better understanding how display.vline and display.hline work:
+    The following 2 lines draw a horizontal and a vertical line:
+    The horizontal line goes from pixel row 5/column 10 (start counting from zero) and is 10 pixel long
+    The vertical line goes from pixel row 5/column 10 (start counting from zero) and is 7 pixel long
+    Color is white in both cases
+
+display.hline(4, 10, 10, color=0xffff)
+display.vline(4, 10, 7, color=0xffff)
+
+   012345678910...........  
+  |-----------------------
+ 0|.......................
+ 1|.......................
+ 2|.......................
+ 3|.......................
+ 4|......... **********...
+ 5|..........*............
+ 6|..........*............
+ 7|..........*............
+ 8|..........*............
+ 9|..........*............
+10|..........*............
+11|.......................
+12|.......................
+13|-----------------------
+"""
+
 display.hline(0, 22, 160, color=0xffff)
 display.hline(0, 87, 160, color=0xffff)
 display.hline(0, 55, 160, color=0xffff)
