@@ -16,6 +16,7 @@ gc.enable()
 # **********************************************************************************************
 
 # Sign of life LED - setup GPIO2 as an output pin connected to the onboard LED
+#
 ledPin = Pin(2, Pin.OUT, value=1)
 
 # A randomly created MQTT clientID
@@ -24,15 +25,18 @@ ledPin = Pin(2, Pin.OUT, value=1)
 random_num = int.from_bytes(os.urandom(3), 'little')
 mqtt_client_id = bytes('client_'+str(random_num), 'utf-8')
 
-# Establish connection to Adafruit IO MQTT via unsecure TCP port 1883
-# 
-# For secured SSL connection set set parameter ssl from "ssl=False" to "ssl=True"
-# Note: SSL connection uses about 9k bytes of the heap means 25% of the ESP8266 heap
+# Your IO.ADAFRUIT.COM account data
+#
 ADAFRUIT_IO_URL = b'io.adafruit.com' 
 ADAFRUIT_USERNAME = b'Your Adafruit username'
 ADAFRUIT_IO_KEY = b'Your Adafruit IO KEY'
 ADAFRUIT_IO_FEEDNAME = b'Your Adafruit feed name'
 
+# Establish connection to Adafruit IO MQTT via unsecure TCP port 1883
+# 
+# For secured SSL connection set set parameter ssl from "ssl=False" to "ssl=True"
+# Note: SSL connection uses about 9k bytes of the heap means 25% of the ESP8266 heap
+#
 client = MQTTClient(client_id=mqtt_client_id, 
                     server=ADAFRUIT_IO_URL, 
                     user=ADAFRUIT_USERNAME, 
@@ -57,6 +61,7 @@ PUBLISH_PERIOD_IN_SEC = 10
 # **********************************************************************************************
 #
 # This initiates the SPI bus
+#
 display = st7735.ST7735R(SPI(1, baudrate=40000000), dc=Pin(16), cs=Pin(15), rst=Pin(0))
 
 bf = bitmapfont.BitmapFont(128,160, display.pixel)
