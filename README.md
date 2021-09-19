@@ -1,5 +1,5 @@
 # Micropython - ESP8266 D1mini - DHT11 to ST7735 TFT
-**This project allows you to show room temperature and humidity on an ST7735 TFT display (160x128px) connected to an ESP8266 D1 mini**
+**This project allows you to show room temperature and humidity on an ST7735 TFT display (160x128px) connected to an ESP8266 D1 mini and visualize in a graph on ADAFRUIT.IO**
 
 </br>
 <img src="https://imgur.com/kPmrGMm.jpg">
